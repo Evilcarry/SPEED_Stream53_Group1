@@ -1,0 +1,4 @@
+{
+    "mongoURI":
+      "mongodb+srv://mongodb:speed@speedcluster.rzzbmx0.mongodb.net/?retryWrites=true&w=majority"
+  }
