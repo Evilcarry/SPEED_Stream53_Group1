@@ -1,7 +1,19 @@
+require('dotenv').config();
 const express = require('express');
 const app = express();
 const path = require('path');
+const cookieParser = require('cookie-parser');
+const cors = require('cors');
+const corsOptions = require('./config/corsOptions');
+const connectDB = require('./config/db');
+const mongoose = require('mongoose');
 const PORT = process.env.PORT || 5000;
+
+connectDB()
+
+app.use(cookieParser);
+
+app.use(cors(corsOptions));
 
 app.use('/', express.static(path.join(__dirname, '..' ,'frontend/speed-app/public')));
 
@@ -18,6 +30,13 @@ app.all('*', (req, res) => {
     }
 });
 
-app.listen(PORT, () => {
-    console.log(`Server is running on port: ${PORT}`);
+mongoose.connection.once('open', () => {
+    console.log('Connected to mongoDB');
+    app.listen(PORT, () => {
+        console.log(`Server is running on port: ${PORT}`);
+    });
+});
+
+mongoose.connection.on('error', err => {
+    console.log(err);
 });
