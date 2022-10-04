@@ -9,7 +9,7 @@ const path = require('path')
 // function has request and response, in the function we send the file back
 router.get('^/$|/index(.html)?', (req, res) => {
     // '..' outside of current folder, within the views folder, looking for the index.html file
-    res.sendFile(path.join(__dirname, '../../frontend', 'views', 'index.html'))
+    res.sendFile(path.join(__dirname, '../..', '', 'index.html'))
 }) 
 
 module.exports = router
