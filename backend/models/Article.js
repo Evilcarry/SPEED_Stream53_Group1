@@ -1,5 +1,5 @@
-const mongoose = require('mongoose');
-const AutoIncrement = require('mongoose-sequence')(mongoose);
+const mongoose = require('mongoose')
+const AutoIncrement = require('mongoose-sequence')(mongoose)
 
 //All required at the moment, accepted will be used to check if it was rejected or not.
 const articleSchema = new mongoose.Schema({
@@ -40,11 +40,11 @@ const articleSchema = new mongoose.Schema({
         type: Boolean,
         default: false
     }
-});
+})
 
 articleSchema.plugin(AutoIncrement), {
     inc_field: 'priority', 
     id: 'prioNum',
     start_seq: 1000
-};
+}
 module.exports = mongoose.model('Article', articleSchema)
