@@ -3,7 +3,7 @@ import {useFetch} from "../dummydata/articles.js";
 import { useTable, useSortBy, usePagination } from 'react-table';
 
 export default function EvidenceTable() {
-  const res = useFetch('https://localhost:5000/API/article', {});
+  const res = useFetch('https://localhost:5000/API/articleRouter', {});
 
   if(!res.response.results) {
       return <div>Loading...</div>
@@ -65,17 +65,13 @@ const {
             </tr>
           ))}
         </thead>
-        <tbody {...getTableBodyProps()}>
-          {page.map((row, i) => {
-            prepareRow(row)
-            return (
-              <tr {...row.getRowProps()}>
-                {row.cells.map(cell => {
-                  return <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
-                })}
-              </tr>
-            )
-          })}
+        <tbody>
+            {data && data.map(row => {
+                <tr>
+                    <th scope="row" key={row.id}>{row.id}</th>
+                    <td>{row.title.title}</td>
+                </tr>
+            })}    
         </tbody>
       </table>  
 
