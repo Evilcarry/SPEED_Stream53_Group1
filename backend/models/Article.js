@@ -39,12 +39,16 @@ const articleSchema = new mongoose.Schema({
     accepted: {
         type: Boolean,
         default: false
+    },
+    rejected: {
+        type: Boolean,
+        default: false
     }
 })
 
-articleSchema.plugin(AutoIncrement), {
+articleSchema.plugin(AutoIncrement, {
     inc_field: 'priority', 
     id: 'prioNum',
     start_seq: 1000
-}
+})
 module.exports = mongoose.model('Article', articleSchema)
