@@ -6,7 +6,7 @@ const asyncHandler = require('express-async-handler')
 // @access Private
 const getAllArticles = asyncHandler(async(req, res) => {
     const articles = await Article.find().lean()
-    if (!articles){
+    if (!articles?.length){
         return res.status(400).json({ message: 'No articles found'})
     }
     res.json(articles)
@@ -16,10 +16,10 @@ const getAllArticles = asyncHandler(async(req, res) => {
 // @route POST /article
 // @access Private
 const createNewArticle = asyncHandler(async(req, res) => {
-    const { title, author, journalName, yearOfPublication, volumeNumber, pages, doi} = req.body
+    const { submitterID, title, author, journalName, yearOfPublication, volumeNumber, pages, doi} = req.body
     
     //confirming data
-    if (!title || !author || !journalName || !yearOfPublication || !volumeNumber || !pages || !doi){
+    if (!submitterID || !title || !author || !journalName || !yearOfPublication || !volumeNumber || !pages || !doi){
         return res.status(400).json({ message: 'All fields are required'})
     }
     
@@ -27,10 +27,10 @@ const createNewArticle = asyncHandler(async(req, res) => {
     const duplicate = await Article.findOne({ doi }).lean().exec()
 
     if (duplicate) {
-        return res.status(409).json({ message: 'Duplicate username'})
+        return res.status(409).json({ message: 'Duplicate article'})
     }
 
-    const articleObject = { title, author, journalName, yearOfPublication, volumeNumber, pages, doi }
+    const articleObject = {submitterID, title, author, journalName, yearOfPublication, volumeNumber, pages, doi }
 
     // create and store new Article
     const article = await Article.create(articleObject)
@@ -46,14 +46,14 @@ const createNewArticle = asyncHandler(async(req, res) => {
 // @route Patch /article
 // @access Private
 const updateArticle = asyncHandler(async(req, res) => {
-    const { submitterID, title, author, journalName, yearOfPublication, volumeNumber, pages, doi, accepted, rejected } = req.body
+    const {id, submitterID, title, author, journalName, yearOfPublication, volumeNumber, pages, doi, accepted, rejected } = req.body
 
     //confirm data
-    if (!submitterID ||!title || !author || !journalName || !yearOfPublication || !volumeNumber || !pages || !doi || typeof accepted !== 'boolean' || typeof rejected !== 'boolean'){
+    if (!id || !submitterID ||!title || !author || !journalName || !yearOfPublication || !volumeNumber || !pages || !doi || typeof accepted !== 'boolean' || typeof rejected !== 'boolean'){
         return res.status(400).json({ message: 'All fields are required'})
     }
 
-    const article = await Article.findById(submitterID).exec()
+    const article = await Article.findById(id).exec()
 
     //check for no article found
     if (!article) {
@@ -63,7 +63,7 @@ const updateArticle = asyncHandler(async(req, res) => {
     //check for duplicate 
     const duplicate = await Article.findOne({doi}).lean().exec()
     // Allow updates to the original article
-    if (duplicate && duplicate?._id.toString() !== submitterID){
+    if (duplicate && duplicate?._id.toString() !== id){
         return res.status(409).json({ message: 'Duplicate doi'})
     }
 
