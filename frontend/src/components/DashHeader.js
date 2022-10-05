@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 
 const DashHeader = () => {
-    const conent = (
+    const content = (
         <header className="dash-header">
             <div className="dash-heeader__container">
                 <Link to="/dash/articles">

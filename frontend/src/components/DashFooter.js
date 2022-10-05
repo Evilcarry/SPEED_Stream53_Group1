@@ -6,6 +6,9 @@ const DashFooter = () => {
     const navigate = useNavigate()
     const { pathname } = useLocation()
 
+    const date = new Date()
+    const today = new Intl.DateTimeFormat('en-US', { dateStyle: 'full', timeStyle: 'long' }).format(date)
+
     const onGoHomeClicked = () => navigate('/dash')
 
     let goHomeButton = null
@@ -25,6 +28,7 @@ const DashFooter = () => {
         <footer className="dash-footer">
             {goHomeButton}
             <p>Current User:</p>
+            <p className="date">{today}</p>
         </footer>
     )
     return content

@@ -173,3 +173,11 @@ a:focus-visible {
   width: auto;
   height: auto;
 }
+
+.date{
+  position: absolute;
+  right: 5px;
+  font-size: 1rem;
+  width: auto;
+  height: auto;
+}
