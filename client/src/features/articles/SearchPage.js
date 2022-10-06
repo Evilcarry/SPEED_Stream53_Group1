@@ -11,7 +11,7 @@ const SearchPage = () =>{
 
   useEffect(() => {
     (async () => {
-      const result = await axios("http://localhost:5000/articles");
+      const result = await axios("https://speed-stream53-group1.herokuapp.com/dash/articles");
       setData(result.data);
     })();
   }, []);
