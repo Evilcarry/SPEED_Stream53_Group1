@@ -5,10 +5,10 @@ import { Route,
   Redirect
 } from 'react-router-dom';
 
-import Home from "./pages/Home";
-import SEPractice from "./pages/SE-Practice";
-import SubmitArticle from "./pages/Submit-Article"; 
-import NotFoundPage from "./pages/404";
+import Home from "./views/Home";
+import SEPractice from "./views/SE-Practice";
+import SubmitArticle from "./views/Submit-Article"; 
+import NotFoundPage from "./views/404";
 
 
 const App = () =>  {
