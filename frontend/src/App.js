@@ -5,6 +5,7 @@ import Login from './features/auth/Login'
 import DashLayout from './components/DashLayout'
 import Welcome from './features/auth/Welcome'
 import ArticlesList from './features/articles/ArticlesList'
+import SubmitArticle from './features/articles/SubmitArticle'
 import UsersList from './features/users/UsersList'
 
 function App() {
@@ -19,6 +20,9 @@ function App() {
 
           <Route path="articles">
             <Route index element={<ArticlesList />} />
+          </Route>
+          <Route path="submitarticle">
+            <Route index element={<SubmitArticle />} />
           </Route>
 
           <Route path="users">
