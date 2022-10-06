@@ -21,7 +21,7 @@ app.use(express.json())
 
 app.use(cookieParser())
 
-app.use('/', express.static(path.join(__dirname, 'public')))
+app.use('/', express.static(path.join(__dirname, '..', 'frontend2/public')))
 
 app.use('/', require('./routes/root'))
 app.use('/articles', require('./routes/articleRoutes'))

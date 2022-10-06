@@ -7,6 +7,7 @@ import Welcome from './features/auth/Welcome'
 import ArticlesList from './features/articles/ArticlesList'
 import SubmitArticle from './features/articles/SubmitArticle'
 import UsersList from './features/users/UsersList'
+import SearchPage from './features/articles/SearchPage'
 
 function App() {
   return (
@@ -19,7 +20,7 @@ function App() {
           <Route index element={<Welcome />} /> 
 
           <Route path="articles">
-            <Route index element={<ArticlesList />} />
+            <Route index element={<SearchPage />} />
           </Route>
           <Route path="submitarticle">
             <Route index element={<SubmitArticle />} />
