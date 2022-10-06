@@ -1,7 +1,13 @@
+import DashHeader from "../../components/DashHeader"
 
 const Login = () => {
     return (
-        <h1>Login</h1>
+    <>
+        <DashHeader />
+        <div className="dash-container">
+            <h1>Login</h1>
+        </div>
+    </>
     )
 }
 export default Login
