@@ -16,7 +16,7 @@ const SubmitArticle = () => {
 
 
     const client = axios.create({
-        baseURL: "http://localhost:5000/articles"
+        baseURL: "https://speed-stream53-group1.herokuapp.com/articles"
     })
 
     useEffect(() => {
