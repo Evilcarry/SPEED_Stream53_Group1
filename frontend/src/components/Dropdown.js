@@ -1,7 +1,7 @@
 import React from 'react';
-import SEPractices from "../dummydata/SEPractices"
+import DropdownItems from './DropdownItems';
 
-  const optionItems = SEPractices.map((SEPractice) =>
+  const optionItems = DropdownItems.map((SEPractice) =>
                 <option key={SEPractice.practice}>{SEPractice.practice}</option>
             );
   const Dropdown = () => {
@@ -15,4 +15,4 @@ import SEPractices from "../dummydata/SEPractices"
 
     )
   }
-  export default Dropdown;
+  export default Dropdown

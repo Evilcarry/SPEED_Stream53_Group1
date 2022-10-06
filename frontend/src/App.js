@@ -4,8 +4,9 @@ import HomePage from './components/HomePage'
 import Login from './features/auth/Login'
 import DashLayout from './components/DashLayout'
 import Welcome from './features/auth/Welcome'
-import ArticlesList from './features/articles/ArticlesList'
+//import ArticlesList from './features/articles/ArticlesList'
 import UsersList from './features/users/UsersList'
+import SearchPage from './features/articles/SearchPage'
 
 function App() {
   return (
@@ -18,9 +19,9 @@ function App() {
           <Route index element={<Welcome />} /> 
 
           <Route path="articles">
-            <Route index element={<ArticlesList />} />
+            <Route index element={<SearchPage />} />
           </Route>
-
+        
           <Route path="users">
             <Route index element={<UsersList />} />
           </Route>

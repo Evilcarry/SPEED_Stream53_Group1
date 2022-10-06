@@ -1,11 +1,5 @@
 const tablecolumns = [
     {
-      Header: 'ID',
-      accessor: '_id'
-    }, {
-      Header: 'Submitter',
-      accessor: 'submitterID'
-    }, {
       Header: 'Title',
       accessor: 'title'
     }, {
@@ -22,7 +16,7 @@ const tablecolumns = [
       accessor: 'volumeNumber'
     }, {
       Header: 'Pages',
-      accessor: ''
+      accessor: 'pages'
     }, {
       Header: 'DOI',
       accessor: 'doi'
@@ -32,12 +26,6 @@ const tablecolumns = [
     }, {
       Header: 'Rejected',
       accessor: 'rejected'
-    }, {
-      Header: 'Priority',
-      accessor: 'priority'
-    }, {
-      Header: '__V',
-      accessor: '__v'
     }
   ]
 

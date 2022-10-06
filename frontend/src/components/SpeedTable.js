@@ -1,6 +1,6 @@
-import React, {useMemo} from "react";
-import articles from "../dummydata/articles.js";
-import { useTable, useSortBy, usePagination } from 'react-table';
+import React, {useState} from "react";
+import { useTable, useSortBy, usePagination, useFilters } from 'react-table';
+
 
 const Table = ({columns, data}) => {
 const {
@@ -8,7 +8,7 @@ const {
     getTableBodyProps,
     headerGroups,
     prepareRow,
-    
+    setFilter,
     page, // Instead of using 'rows', we'll use page,
     // which has only the rows for the active page
 
@@ -29,13 +29,27 @@ const {
       initialState: { pageIndex: 0 },
     },
     
+    useFilters,
     useSortBy,
     usePagination
   )
+  const [filterInput, setFilterInput] = useState("");
 
+  // Update the state when input changes
+  const handleFilterChange = e => {
+    const value = e.target.value || undefined;
+    setFilter("title", value);
+    setFilterInput(value);
+  };
+  
   // Render Data Table UI
   return (
     <>
+    <input
+    value={filterInput}
+    onChange={handleFilterChange}
+    placeholder={"Search by title"}
+  />
       <table {...getTableProps()}>
         <thead>
           {headerGroups.map(headerGroup => (
@@ -122,4 +136,4 @@ const {
   )
 };
   
-  export default Table;
+  export default Table

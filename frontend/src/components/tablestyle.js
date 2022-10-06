@@ -24,4 +24,4 @@ const Styles = styled.div `
     }
   }
 `
-export default Styles;
+export default Styles
