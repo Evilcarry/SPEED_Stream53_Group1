@@ -1,8 +1,9 @@
-import {useFetch} from "../dummydata/articles.js";
+import articles from "../dummydata/articles.js";
 import Styles from "../components/tablestyle.js";
 import Table from "../components/Evidencetable.js";
 import tablecolumns from "../components/tablecolumns.js";
 import Dropdown from "../components/Dropdown.js";
+import getarticles from "../dummydata/getarticles.js";
 
 const SEPractice = () => {
     return (
@@ -11,7 +12,7 @@ const SEPractice = () => {
             <Dropdown/>
                <Styles>
                  <Table
-                  //data={useFetch}
+                  data={articles}
                   columns={tablecolumns}
                  />
               </Styles>

@@ -1,34 +1,43 @@
 const tablecolumns = [
-  {
-    Header: 'Submitter',
-    accessor: 'submitterID'
-  },{
+    {
+      Header: 'ID',
+      accessor: '_id'
+    }, {
+      Header: 'Submitter',
+      accessor: 'submitterID'
+    }, {
       Header: 'Title',
       accessor: 'title'
     }, {
-      Header: 'Authors',
-      accessor: 'authors'
+      Header: 'Author',
+      accessor: 'author'
     }, {
-      Header: 'Journal Name',
+      Header: 'Journal',
       accessor: 'journalName'
-    },{
-      Header: 'Volume#',
-      accessor: 'volumeNumber'
-    },{
-      Header: 'Pages',
-      accessor: 'pages'
-    },{
-      Header: 'Pub. Year',
+    }, {
+      Header: 'Pub Year',
       accessor: 'yearOfPublication'
-    },{
+    }, {
+      Header: 'Vol #',
+      accessor: 'volumeNumber'
+    }, {
+      Header: 'Pages',
+      accessor: ''
+    }, {
       Header: 'DOI',
       accessor: 'doi'
-    },{
+    }, {
       Header: 'Accepted',
       accessor: 'accepted'
-    },{
+    }, {
       Header: 'Rejected',
       accessor: 'rejected'
+    }, {
+      Header: 'Priority',
+      accessor: 'priority'
+    }, {
+      Header: '__V',
+      accessor: '__v'
     }
   ]
 
