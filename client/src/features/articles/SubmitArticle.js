@@ -33,7 +33,6 @@ const SubmitArticle = () => {
         try {
             client
             .post('', {
-                "submitterID": "507f1f77bcf86cd799439011",
                 title: title,
                 author: author,
                 journalName: journalName,

@@ -16,10 +16,10 @@ const getAllArticles = asyncHandler(async(req, res) => {
 // @route POST /article
 // @access Private
 const createNewArticle = asyncHandler(async(req, res) => {
-    const { submitterID, title, author, journalName, yearOfPublication, volumeNumber, pages, doi} = req.body
+    const {title, author, journalName, yearOfPublication, volumeNumber, pages, doi} = req.body
     
     //confirming data
-    if (!submitterID || !title || !author || !journalName || !yearOfPublication || !volumeNumber || !pages || !doi){
+    if ( !title || !author || !journalName || !yearOfPublication || !volumeNumber || !pages || !doi){
         return res.status(400).json({ message: 'All fields are required'})
     }
     
@@ -30,7 +30,7 @@ const createNewArticle = asyncHandler(async(req, res) => {
         return res.status(409).json({ message: 'Duplicate article'})
     }
 
-    const articleObject = {submitterID, title, author, journalName, yearOfPublication, volumeNumber, pages, doi }
+    const articleObject = {title, author, journalName, yearOfPublication, volumeNumber, pages, doi }
 
     // create and store new Article
     const article = await Article.create(articleObject)
@@ -46,10 +46,10 @@ const createNewArticle = asyncHandler(async(req, res) => {
 // @route Patch /article
 // @access Private
 const updateArticle = asyncHandler(async(req, res) => {
-    const {id, submitterID, title, author, journalName, yearOfPublication, volumeNumber, pages, doi, accepted, rejected } = req.body
+    const {id, title, author, journalName, yearOfPublication, volumeNumber, pages, doi, accepted, rejected, isAnalised } = req.body
 
     //confirm data
-    if (!id || !submitterID ||!title || !author || !journalName || !yearOfPublication || !volumeNumber || !pages || !doi || typeof accepted !== 'boolean' || typeof rejected !== 'boolean'){
+    if (!id ||!title || !author || !journalName || !yearOfPublication || !volumeNumber || !pages || !doi || typeof accepted !== 'boolean' || typeof rejected !== 'boolean' || typeof isAnalised !== 'boolean'){
         return res.status(400).json({ message: 'All fields are required'})
     }
 
@@ -81,7 +81,10 @@ const updateArticle = asyncHandler(async(req, res) => {
     if (rejected){
         article.rejected = rejected
     }
-
+    if (isAnalised){
+        article.isAnalised = isAnalised
+    }
+    
     const updatedArticle = await article.save()
 
     res.json({ message: `updated article with the title: ${title}`})
