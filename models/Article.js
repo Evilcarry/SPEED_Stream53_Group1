@@ -3,11 +3,6 @@ const AutoIncrement = require('mongoose-sequence')(mongoose)
 
 //All required at the moment, accepted will be used to check if it was rejected or not.
 const articleSchema = new mongoose.Schema({
-    submitterID: {
-        type: mongoose.Schema.Types.ObjectID,
-        required: true,
-        ref: 'Submitter'
-    },
     title: {
         type: String,
         required: true
@@ -41,6 +36,10 @@ const articleSchema = new mongoose.Schema({
         default: false
     },
     rejected: {
+        type: Boolean,
+        default: false
+    },
+    isAnalised: {
         type: Boolean,
         default: false
     }
