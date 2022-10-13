@@ -8,6 +8,7 @@ import ArticlesList from './features/articles/ArticlesList'
 import SubmitArticle from './features/articles/SubmitArticle'
 import UsersList from './features/users/UsersList'
 import SearchPage from './features/articles/SearchPage'
+import AnaliseArticle from "./features/analiser/analisearticle"
 
 function App() {
   return (
@@ -29,6 +30,11 @@ function App() {
           <Route path="users">
             <Route index element={<UsersList />} />
           </Route>
+
+          <Route path="analisearticle">
+            <Route index element={<AnaliseArticle />} />
+          </Route>
+
         </Route>{/* end dash */}
       </Route>
     </Routes>
