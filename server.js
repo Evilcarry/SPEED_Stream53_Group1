@@ -25,7 +25,7 @@ app.use('/', express.static(path.join(__dirname, 'client', 'build')))
 
 app.use('/', require('./routes/root'))
 app.use('/articles', require('./routes/articleRoutes'))
-app.use('analiser', require('./controllers/analiserController'))
+app.use('/analiser', require('./controllers/analiserController'))
 
 app.all('*', (req, res) => {
     res.status(404)
