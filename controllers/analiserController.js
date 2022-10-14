@@ -16,3 +16,10 @@ const getAnaliserArticles = asyncHandler(async(req, res) => {
 
     res.json(articles)
 })
+
+module.exports = {
+    getAnaliserArticles    
+    //createNewArticle,
+    //updateArticle,
+    //deleteArticle
+}
