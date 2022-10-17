@@ -23,10 +23,10 @@ const getAnaliserArticles = asyncHandler(async(req, res) => {
 const addArticleSection = asyncHandler(async(req, res) => {
     const {title, doi, articleText} = req.body
 
-    //Checking that title and doi have been inputted
-    if(!title || !doi || !articleText){
-        return res.status(400).json({ message: 'All fields are required'})
-    }
+    //Checking that title, doi and articleText have been inputted
+    //if(!title || !doi || !articleText){
+     //   return res.status(400).json({ message: 'All fields are required'})
+    //}
 
     //request an article with the given doi
     const article = await Article.findById(doi).exec()
