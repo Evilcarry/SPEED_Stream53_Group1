@@ -20,7 +20,7 @@ const getAnaliserArticles = asyncHandler(async(req, res) => {
 // @desc Get all Analiser Articles
 // @route GET /analiser
 // @access Private
-const addArticleSection = asyncHandler(async(req, red) => {
+const addArticleSection = asyncHandler(async(req, res) => {
     const {title, doi, articleText} = req.body
 
     //Checking that title and doi have been inputted
