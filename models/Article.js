@@ -42,6 +42,10 @@ const articleSchema = new mongoose.Schema({
     isAnalised: {
         type: Boolean,
         default: false
+    },
+    articleText: {
+        type: String,
+        required: false
     }
 })
 
