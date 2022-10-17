@@ -10,9 +10,9 @@ const getAnaliserArticles = asyncHandler(async(req, res) => {
         return res.status(400).json({ message: 'No articles found'})
     }
 
-    if (articles.accepted !== true || articles.rejected !== false){
-        return res.status(400).json({ message: `No articles found to be analised ${articles.accepted} ${article.rejected}`})
-    }
+    //if (articles.accepted !== true || articles.rejected !== false){
+    //    return res.status(400).json({ message: `No articles found to be analised ${articles.accepted} ${article.rejected}`})
+    //}
 
     res.json(articles)
 })
