@@ -11,7 +11,7 @@ const getAnaliserArticles = asyncHandler(async(req, res) => {
     }
 
     if (articles.accepted !== true || articles.rejected !== false){
-        return res.status(400).json({ message: 'No articles found to be analised'})
+        return res.status(400).json({ message: `No articles found to be analised ${articles.accepted} ${article.rejected}`})
     }
 
     res.json(articles)
@@ -36,7 +36,7 @@ const addArticleSection = asyncHandler(async(req, res) => {
         return res.status(400).json({ message: 'No articles found'}) 
     }
 
-    article.articleText = articleText
+    Article.articleText = articleText
 
     const updatedArticle = await article.save()
 
