@@ -15,15 +15,15 @@ const getAnaliserArticles = asyncHandler(async(req, res) => {
 })
 
 // @desc Get all Analiser Articles
-// @route GET /analiser
+// @route POST /analiser
 // @access Private
 const addArticleSection = asyncHandler(async(req, res) => {
     const {title, doi, articleText} = req.body
 
     //Checking that title, doi and articleText have been inputted
-    if(!title || !doi || !articleText){
-        return res.status(400).json({ message: 'All fields are required'})
-    }
+    //if(!title || !doi || !articleText){
+     //   return res.status(400).json({ message: 'All fields are required'})
+    //}
 
     //request an article with the given doi
     //const condition = {"doi":`${doi}`}
