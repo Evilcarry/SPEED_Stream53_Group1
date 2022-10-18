@@ -34,6 +34,7 @@ const addArticleSection = asyncHandler(async(req, res) => {
     }
 
     article.articleText = articleText
+    article.isAnalised = true
 
     const updatedArticle = await article.save()
 
