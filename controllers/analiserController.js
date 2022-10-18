@@ -15,7 +15,7 @@ const getAnaliserArticles = asyncHandler(async(req, res) => {
 })
 
 // @desc update article
-// @route POST /analiser
+// @route PATCH /analiser
 // @access Private
 const addArticleSection = asyncHandler(async(req, res) => {
     const {title, doi, articleText} = req.body
@@ -26,7 +26,6 @@ const addArticleSection = asyncHandler(async(req, res) => {
     }
 
     //request an article with the given doi
-
     const article = await Article.findOne({doi}).exec()
 
     //If the doi is wrong, no articles found
@@ -38,7 +37,7 @@ const addArticleSection = asyncHandler(async(req, res) => {
 
     const updatedArticle = await article.save()
 
-    res.json({ message: `updated article with the title: ${updatedArticle.title}`})
+    res.json(`'${updatedArticle.articleText}' updated`)
 })
 
 module.exports = {
