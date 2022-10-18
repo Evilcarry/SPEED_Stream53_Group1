@@ -14,7 +14,7 @@ const getAnaliserArticles = asyncHandler(async(req, res) => {
     res.json(articles)
 })
 
-// @desc Get all Analiser Articles
+// @desc update article
 // @route POST /analiser
 // @access Private
 const addArticleSection = asyncHandler(async(req, res) => {
@@ -31,7 +31,7 @@ const addArticleSection = asyncHandler(async(req, res) => {
 
     //If the doi is wrong, no articles found
     if (!article) {
-        return res.status(400).json({ message: 'No articles found'}) 
+        return res.status(400).json({ message: `No articles found ${title} ${doi} ${articleText}`}) 
     }
 
     Article.articleText = articleText
