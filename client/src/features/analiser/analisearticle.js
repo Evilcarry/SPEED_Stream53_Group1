@@ -17,7 +17,7 @@ const AnaliseArticle = () => {
     }, []);
     return (
       <div className="SearchPage">
-        <h2>SPEED Database</h2>
+        <h2>Analiser Page</h2>
         <Dropdown/>
                  <Styles>
         <Table columns={tablecolumns} data={data} />
