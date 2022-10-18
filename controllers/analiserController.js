@@ -11,10 +11,6 @@ const getAnaliserArticles = asyncHandler(async(req, res) => {
         return res.status(400).json({ message: 'No articles found'})
     }
 
-    //if (articles.accepted !== true || articles.rejected !== false){
-    //    return res.status(400).json({ message: `No articles found to be analised ${articles.accepted} ${article.rejected}`})
-    //}
-
     res.json(articles)
 })
 
@@ -25,12 +21,13 @@ const addArticleSection = asyncHandler(async(req, res) => {
     const {title, doi, articleText} = req.body
 
     //Checking that title, doi and articleText have been inputted
-    //if(!title || !doi || !articleText){
-     //   return res.status(400).json({ message: 'All fields are required'})
-    //}
+    if(!title || !doi || !articleText){
+        return res.status(400).json({ message: 'All fields are required'})
+    }
 
     //request an article with the given doi
-    const article = await Article.findById(doi).exec()
+    //const condition = {"doi":`${doi}`}
+    const article = await Article.findOne({doi}).lean().exec()
 
     //If the doi is wrong, no articles found
     if (!article) {
