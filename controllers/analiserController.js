@@ -21,24 +21,24 @@ const addArticleSection = asyncHandler(async(req, res) => {
     const {title, doi, articleText} = req.body
 
     //Checking that title, doi and articleText have been inputted
-    //if(!title || !doi || !articleText){
-     //   return res.status(400).json({ message: 'All fields are required'})
-    //}
+    if(!title || !doi || !articleText){
+        return res.status(400).json({ message: 'All fields are required'})
+    }
 
     //request an article with the given doi
-    //const condition = {"doi":`${doi}`}
+
     const article = await Article.findOne({doi}).lean().exec()
 
     //If the doi is wrong, no articles found
     if (!article) {
-        return res.status(400).json({ message: `No articles found ${title} ${doi} ${articleText}`}) 
+        return res.status(400).json({ message: 'No articles found'}) 
     }
 
-    Article.articleText = articleText
+    article.articleText = articleText
 
     const updatedArticle = await article.save()
 
-    res.json({ message: `updated article with the title: ${title}`})
+    res.json({ message: `updated article with the title: ${updatedArticle.title}`})
 })
 
 module.exports = {
