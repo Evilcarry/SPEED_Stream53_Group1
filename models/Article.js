@@ -45,7 +45,7 @@ const articleSchema = new mongoose.Schema({
     },
     articleText: {
         type: String,
-        required: false
+        default: ""
     }
 })
 
