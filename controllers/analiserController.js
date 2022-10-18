@@ -27,7 +27,7 @@ const addArticleSection = asyncHandler(async(req, res) => {
 
     //request an article with the given doi
 
-    const article = await Article.findOne({doi}).lean().exec()
+    const article = await Article.findOne({doi}).exec()
 
     //If the doi is wrong, no articles found
     if (!article) {
