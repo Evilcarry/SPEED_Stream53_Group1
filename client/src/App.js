@@ -8,7 +8,7 @@ import ArticlesList from './features/articles/ArticlesList'
 import SubmitArticle from './features/articles/SubmitArticle'
 import UsersList from './features/users/UsersList'
 import SearchPage from './features/articles/SearchPage'
-import AnaliseArticle from "./features/analiser/analisearticle"
+import AnaliseArticle from "./features/analiser/AnaliseArticle"
 
 function App() {
   return (

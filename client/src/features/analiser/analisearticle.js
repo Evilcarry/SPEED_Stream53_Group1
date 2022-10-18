@@ -5,7 +5,7 @@ import Dropdown from "../../components/Dropdown.js";
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
 
-const analisearticle = () => {  
+const AnaliseArticle = () => {  
 
     const [data, setData] = useState([]);
 
@@ -25,5 +25,4 @@ const analisearticle = () => {
       </div>
     );
 }
-
-export default analisearticle
+export default AnaliseArticle
