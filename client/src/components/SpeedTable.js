@@ -1,3 +1,4 @@
+//axios get modified from 
 import React, {useState} from "react";
 import { useTable, useSortBy, usePagination, useFilters } from 'react-table';
 
@@ -26,7 +27,7 @@ const {
     {
       columns,
       data,
-      initialState: { pageIndex: 0 },
+      initialState: { pageIndex: 0 , pageSize: 3},
     },
     
     useFilters,
@@ -113,7 +114,7 @@ const {
             defaultValue={pageIndex + 1}
             onChange={e => {
               const page = e.target.value ? Number(e.target.value) - 1 : 0
-              gotoPage(page)
+              gotoPage(page)             
             }}
             style={{ width: '100px' }}
           />
@@ -131,9 +132,11 @@ const {
           ))}
         </select>
       </div>
+      
     </>
 
   )
-};
   
-  export default Table
+}
+  
+export default Table

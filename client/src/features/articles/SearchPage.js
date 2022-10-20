@@ -1,6 +1,6 @@
 import Styles from "../../components/tablestyle.js";
 import Table from "../../components/SpeedTable.js";
-import tablecolumns from "../../components/tablecolumns.js";
+import TablecolumnsSearch from "../../components/TablecolumnsSearch.js";
 import Dropdown from "../../components/Dropdown.js";
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
@@ -11,16 +11,24 @@ const SearchPage = () =>{
 
   useEffect(() => {
     (async () => {
-      const result = await axios("https://speed-stream53-group1.herokuapp.com/articles");
+      const result = await axios.get("https://speed-stream53-group1.herokuapp.com/articles/");
       setData(result.data);
     })();
   }, []);
+  /*axios
+  .get("https://speed-stream53-group1.herokuapp.com/articles?isAnalised=true")
+  .then((response) => {
+    setData(response.data);
+  })
+  .catch((error) => {
+    console.error(error);
+  });*/
   return (
     <div className="SearchPage">
       <h2>SPEED Database</h2>
       <Dropdown/>
-               <Styles>
-      <Table columns={tablecolumns} data={data} />
+      <Styles>
+      <Table columns={TablecolumnsSearch} data={data} />
       </Styles>
     </div>
   );

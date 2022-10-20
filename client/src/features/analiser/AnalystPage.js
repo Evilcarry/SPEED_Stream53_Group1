@@ -1,6 +1,6 @@
 import Styles from "../../components/tablestyle.js";
 import Table from "../../components/SpeedTable.js";
-import tablecolumns from "../../components/tablecolumns.js";
+import TablecolumnsAnalyse from "../../components/TablecolumnsAnalyse";
 import Dropdown from "../../components/Dropdown.js";
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
@@ -20,7 +20,7 @@ const AnalystPage = () => {
         <h2>Analiser Page</h2>
         <Dropdown/>
                  <Styles>
-        <Table columns={tablecolumns} data={data} />
+        <Table columns={TablecolumnsAnalyse} data={data} />
         </Styles>
       </div>
     );

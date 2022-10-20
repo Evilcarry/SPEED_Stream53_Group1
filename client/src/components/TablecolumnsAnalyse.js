@@ -1,4 +1,4 @@
-const tablecolumns = [
+const TablecolumnsAnalyse = [
     {
       Header: 'Title',
       accessor: 'title'
@@ -21,12 +21,18 @@ const tablecolumns = [
       Header: 'DOI',
       accessor: 'doi'
     }, {
-      Header: 'Accepted',
-      accessor: 'accepted'
-    }, {
-      Header: 'Rejected',
-      accessor: 'rejected'
+      Header: 'Add to Database',
+      accessor: 'addtodatabase',
+      Cell: row => (
+        <div>
+          
+           <button onClick={e=> handleEdit(row.row.original)}>Save</button>
+        </div>
+        )
     }
+    
   ]
-
-  module.exports = tablecolumns
+  function handleEdit(row) {
+    console.log(row);
+  }
+  export default TablecolumnsAnalyse
