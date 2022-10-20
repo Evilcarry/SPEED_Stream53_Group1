@@ -1,4 +1,4 @@
-const tablecolumns = [
+const TablecolumnsModerate = [
     {
       Header: 'Title',
       accessor: 'title'
@@ -20,13 +20,7 @@ const tablecolumns = [
     }, {
       Header: 'DOI',
       accessor: 'doi'
-    }, {
-      Header: 'Accepted',
-      accessor: 'accepted'
-    }, {
-      Header: 'Rejected',
-      accessor: 'rejected'
     }
   ]
 
-  module.exports = tablecolumns
+  module.exports = TablecolumnsModerate
