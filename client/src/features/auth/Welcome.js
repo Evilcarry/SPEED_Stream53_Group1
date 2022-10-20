@@ -8,7 +8,7 @@ const Welcome = () => {
             <p><Link to="/dash/articles">View Articles</Link></p>
             <p><Link to="/dash/users">View User Settings</Link></p>
             <p><Link to="/dash/submitarticle">Submit an Article</Link></p>
-            <p><Link to="/dash/analisearticle">Analyse Article</Link></p>
+            <p><Link to="/dash/analystpage">Analyst Page</Link></p>
         </section>
     )
     return content

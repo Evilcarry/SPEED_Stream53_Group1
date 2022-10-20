@@ -4,11 +4,10 @@ import HomePage from './components/HomePage'
 import Login from './features/auth/Login'
 import DashLayout from './components/DashLayout'
 import Welcome from './features/auth/Welcome'
-import ArticlesList from './features/articles/ArticlesList'
 import SubmitArticle from './features/articles/SubmitArticle'
 import UsersList from './features/users/UsersList'
 import SearchPage from './features/articles/SearchPage'
-import AnaliseArticle from "./features/analiser/analisearticle"
+import AnalystPage from "./features/analiser/AnalystPage"
 
 function App() {
   return (
@@ -31,8 +30,8 @@ function App() {
             <Route index element={<UsersList />} />
           </Route>
 
-          <Route path="analisearticle">
-            <Route index element={<AnaliseArticle />} />
+          <Route path="analystpage">
+            <Route index element={<AnalystPage />} />
           </Route>
 
         </Route>{/* end dash */}
