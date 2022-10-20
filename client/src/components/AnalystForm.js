@@ -9,6 +9,7 @@ function AnalystForm(row) {
 
 
   function handleSubmit(title, doi, articleText) {
+    console.log(title, doi, articleText);
     try {
         client
         .patch('', {
@@ -22,7 +23,7 @@ function AnalystForm(row) {
   }
 
   return (
-    <form onSubmit={handleSubmit(row.title, row.doi, extract)}>
+    <form onSubmit={e => handleSubmit(row.title, row.doi, extract)}>
         <textarea 
           value={extract}
           onChange={(e) => setExtract(e.target.value)}
