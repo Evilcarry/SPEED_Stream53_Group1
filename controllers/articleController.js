@@ -5,7 +5,8 @@ const asyncHandler = require('express-async-handler')
 // @route GET /article
 // @access Private
 const getAllArticles = asyncHandler(async(req, res) => {
-    const articles = await Article.find().lean()
+    const condition = {"accepted": "true", "rejected" : "false", "isAnalised" : "true" }
+    const articles = await Article.find(condition).lean()
     if (!articles?.length){
         return res.status(400).json({ message: 'No articles found'})
     }
