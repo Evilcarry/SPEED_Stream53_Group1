@@ -18,11 +18,6 @@ const TablecolumnsSearch = [
     }, {
       Header: 'Extract',
       accessor: 'articleText',
-      Cell: row => (
-        <div>
-           <button onClick={e=> handleEdit(row.row.original)}>Accept</button>
-        </div>
-        )
     },{
       Header: 'DOI',
       accessor: 'doi',
@@ -30,8 +25,6 @@ const TablecolumnsSearch = [
     }
     
   ]
-  function handleEdit(row) {
-    console.log(row);
-  }
+  
 
   export default TablecolumnsSearch

@@ -20,7 +20,19 @@ const TablecolumnsAnalyse = [
     }, {
       Header: 'DOI',
       accessor: 'doi'
+    }, {
+      Header: 'Add to Database',
+      accessor: 'addtodatabase',
+      Cell: row => (
+        <div>
+          
+           <button onClick={e=> handleEdit(row.row.original)}>Save</button>
+        </div>
+        )
     }
+    
   ]
-
-  module.exports = TablecolumnsAnalyse
+  function handleEdit(row) {
+    console.log(row);
+  }
+  export default TablecolumnsAnalyse

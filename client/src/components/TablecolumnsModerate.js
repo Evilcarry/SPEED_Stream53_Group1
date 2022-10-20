@@ -20,7 +20,26 @@ const TablecolumnsModerate = [
     }, {
       Header: 'DOI',
       accessor: 'doi'
+    }, {
+      Header: 'Accept',
+      accessor: 'accepted',
+      Cell: row => (
+        <div>
+           <button onClick={e=> handleEdit(row.row.original)}>Accept</button>
+        </div>
+        )
+    }, {
+      Header: 'Reject',
+      accessor: 'rejected',
+      Cell: row => (
+        <div>
+           <button onClick={e=> handleEdit(row.row.original)}>Reject</button>
+        </div>
+        )
     }
   ]
+  function handleEdit(row) {
+    console.log(row);
+  }
 
-  module.exports = TablecolumnsModerate
+  export default TablecolumnsModerate
