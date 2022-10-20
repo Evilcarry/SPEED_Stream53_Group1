@@ -11,7 +11,7 @@ const ModeratePage = () =>{
 
   useEffect(() => {
     (async () => {
-      const result = await axios.get("https://speed-stream53-group1.herokuapp.com/articles");
+      const result = await axios.get("https://speed-stream53-group1.herokuapp.com/moderator");
       setData(result.data);
     })();
   }, []);
