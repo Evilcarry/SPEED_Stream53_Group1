@@ -27,7 +27,7 @@ const TablecolumnsModerate = [
     accessor: 'accepted',
     Cell: row => (
       <div>
-        <button onClick={e => handleEdit(row.row.original)}>Accept</button>
+        <button onClick={e => handleEdit(row.row.original, row.row.accepted = true, row.row.rejected = false)}>Accept</button>
       </div>
     )
   }, {
@@ -35,38 +35,27 @@ const TablecolumnsModerate = [
     accessor: 'rejected',
     Cell: row => (
       <div>
-        <button onClick={e => handleEdit(row.row.original)}>Reject</button>
+        <button onClick={e => handleEdit(row.row.original, row.row.accepted = false, row.row.rejected = true)}>Reject</button>
       </div>
     )
   }
 ]
-function handleEdit(row) {
+
+function handleEdit(row, accepted, rejected) {
   const client = axios.create({
     baseURL: "https://speed-stream53-group1.herokuapp.com/moderator"
   })
 
-  const handleSubmit = async (e) => {
-    e.preventDefault()
-
-    try {
-      client
-        .patch('', {
-          accepted: row.accepted,
-          rejected: row.rejected,
-          doi: row.doi
-        })
-    } catch (err) {
-      if(!err?.message){
-        setErrMsg('No Server Response')
-      }else if (err.response?.status === 400){
-        setErrMsg('Missing accepted or rejected or doi')
-      }else{
-        setErrMsg('Something went wrong')
-      }
-    }
+  try {
+    client
+      .patch('', {
+        accepted: accepted,
+        rejected: rejected,
+        doi: row.doi
+      })
+  } catch (err) {
+    console.log(err.message)
   }
-
-  handleSubmit
 }
 
 export default TablecolumnsModerate
