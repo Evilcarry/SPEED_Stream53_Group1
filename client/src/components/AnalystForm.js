@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import axios from 'axios'
 
-function AnalystForm(row) {
-  const [extract, setExtract] = useState("");
   const client = axios.create({
     baseURL: "https://speed-stream53-group1.herokuapp.com/analiser"
 })
-
+function AnalystForm(row) {
+  
+  const [extract, setExtract] = useState("")
 
   function handleSubmit(title, doi, articleText) {
     console.log(title, doi, articleText);
