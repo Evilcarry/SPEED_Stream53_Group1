@@ -1,3 +1,4 @@
+import AnalystForm from "./AnalystForm"
 const TablecolumnsAnalyse = [
     {
       Header: 'Title',
@@ -23,16 +24,7 @@ const TablecolumnsAnalyse = [
     }, {
       Header: 'Add to Database',
       accessor: 'addtodatabase',
-      Cell: row => (
-        <div>
-          
-           <button onClick={e=> handleEdit(row.row.original)}>Save</button>
-        </div>
-        )
+      Cell: row => (AnalystForm(row.row.original))
     }
-    
   ]
-  function handleEdit(row) {
-    console.log(row);
-  }
   export default TablecolumnsAnalyse
